@@ -1,0 +1,11 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  command = ""
+
+# Rewrite /api/* to the matching Netlify Function so public/app.js
+# doesn't need to know it's talking to serverless functions.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
